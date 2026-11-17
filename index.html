@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyComputerCareer - Staff MTF Dashboard</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MyComputerCareer - Staff MTF Dashboard</title>
+<style>
         /* Modern CSS Reset & Core Styling */
         * {
             margin: 0;
@@ -328,247 +329,747 @@
             background-color: #475569;
             border-top: 1px solid #334155;
         }
-    </style>
-</head>
-<body>
+    .workspace > .hero[hidden]{display:none!important}
+</style>
+<style>
+        /* Modern CSS Reset & Core Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
 
-    <header>
-        <div class="logo-container">
-            <img src="YOUR_LOGO_IMAGE_URL_HERE" alt="MyComputerCareer Logo" onerror="this.style.display='none'; document.getElementById('fallback').style.display='block';">
-            <div id="fallback" class="logo-fallback" style="display: none;">MyComputer<span>Career</span></div>
-        </div>
-        <h1>Welcome to the Staff MTF Dashboard</h1>
-    </header>
+        body {
+            background-color: #94a3b8; /* Premium dark-slate background */
+            color: #1e293b;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-    <nav class="sub-nav">
-        <button id="dashboardTab" class="nav-tab active" onclick="closeAllModals()">Dashboard</button>
-        <button id="aboutTab" class="nav-tab" onclick="openModal('aboutModal', 'aboutTab')">About MTF</button>
-        <button id="limitationsTab" class="nav-tab" onclick="openModal('limitationsModal', 'limitationsTab')">MTF Limitations</button>
-    </nav>
+        /* Clean Branding Header */
+        header {
+            background-color: #0A2540; /* Official Deep Navy */
+            color: #ffffff;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 4px solid #00A3E0; /* Brighter Blue Accent */
+            box-shadow: 0 4px 15px rgba(10, 37, 64, 0.2);
+        }
 
-    <main>
-        
-        <section class="row-section">
-            <h2 class="row-title">Salesforce Tracking & Analytics</h2>
-            <div class="grid-container">
-                <a href="https://docs.google.com/spreadsheets/d/1H86lTzWc0CIcWjIUdAGXcKUrpnzdkXjbQwt27Q2hWAo/edit?gid=460294987#gid=460294987" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
-                    <span>CWP MTF Certification Command Center</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        .logo-container img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
 
-                <a href="https://mycomputercareeredu.lightning.force.com/lightning/r/Report/00OVK000006Yhwj/view" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                    <span>CWP MTF Unknown Results</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        .logo-fallback {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
 
-                <a href="https://mycomputercareeredu.lightning.force.com/lightning/r/Report/00OVK000006YcvR/view" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8M16 17H8"/></svg>
-                    <span>CWP MTF Weekly Testing Results</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        .logo-fallback span {
+            color: #00A3E0; /* Brighter Blue Accent */
+        }
 
-                <a href="https://mycomputercareeredu.lightning.force.com/lightning/r/Report/00OVK000006YkPx/view" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    <span># of Exams Scheduled This Week</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        header h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+        }
 
-                <a href="https://mycomputercareeredu.lightning.force.com/lightning/r/Report/00OVK000006obwz/view" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-                    <span>Active Non-Scheduled Vouchers</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        /* Navigation Bar for Tabs */
+        .sub-nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #64748b;
+            padding: 0 2rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
 
-                <a href="https://mycomputercareeredu.lightning.force.com/lightning/r/Report/00OVK000009Divh/view" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
-                    <span>MTF Active GT's w/PV Cases</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
-            </div>
-        </section>
+        .nav-tab {
+            background: none;
+            border: none;
+            color: #64748b;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 1rem 0.5rem;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s ease;
+        }
 
-        <section class="row-section">
-            <h2 class="row-title">MTF Administration & Logs</h2>
-            <div class="grid-container">
-                <a href="https://docs.google.com/spreadsheets/d/1jSsgSFz8Ply0zgJzVZG2a6p_0Mau8EgjAX8OKLK15p8/edit?gid=1765999044#gid=1765999044" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-                    <span>Year over Year MTF Passes</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        .nav-tab:hover {
+            color: #0A2540;
+        }
 
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScR4k2mClVjhHggrb5_r5s-jwodXihJ8OrnSXh2k0-TRz_DiQ/viewform" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><polyline points="10 9 9 9 8 9"/></svg>
-                    <span>Lab Assistant Voucher Request Form</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        .nav-tab.active {
+            color: #0A2540;
+        }
 
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdd7fSe4aJRpbEGrn7U4O1jH1X7_32kzfhfjLVYg0cDvyczkQ/viewform?vc=0&c=0&w=1&flr=0" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3M15.5 7.5L14 6"/></svg>
-                    <span>MeasureUp Key Request Form</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #00A3E0; /* Brighter Blue Accent */
+        }
 
-                <a href="https://docs.google.com/spreadsheets/d/1AfvqnIKvZYEgx-EaB7tBUonPQJuh19jAzi-ZpujJmEI/edit?gid=1111021525#gid=1111021525" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    <span>MTF Boot Camp Assignment Sheet</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        /* Central Layout Container */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2rem auto 4rem auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
 
-                <a href="https://docs.google.com/spreadsheets/d/1mlcN005dnSYUhP-WNai8g3IcHrMaxXtz0SPd9h-V2aw/edit?gid=1001740917#gid=1001740917" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                    <span>MTF End of Day Check List</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
-            </div>
-        </section>
+        /* Section Workflow Headers */
+        .row-section {
+            margin-bottom: 2.5rem;
+        }
 
-        <section class="row-section">
-            <h2 class="row-title">Procedures & Training Agendas</h2>
-            <div class="grid-container">
-                <a href="https://docs.google.com/spreadsheets/d/1kVIhEA3Mn-tQkBeGYDDixmBR9wjgDpj2LMeT4BIQMXQ/edit?gid=0#gid=0" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
-                    <span>Exam Score Calculator Estimator</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        .row-section:last-of-type {
+            margin-bottom: 0;
+        }
 
-                <a href="https://docs.google.com/document/d/1LDz-lygT2vLAbWPvExezz5-lBPt2jS17bvho9W2msGg/edit?tab=t.0" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
-                    <span>MTF Procedures</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        .row-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #0A2540;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 2px solid #1e293b; /* Distinct dark divider */
+            padding-bottom: 0.5rem;
+        }
 
-                <a href="https://docs.google.com/document/d/1HUiux34jKF1cdu3ghZaDoi1hZ9twbDZu-DcR6K6m7Cg/edit?tab=t.0" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    <span>MTF Student Response Playbook</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        .row-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            background-color: #00A3E0;
+            border-radius: 2px;
+        }
 
-                <a href="https://docs.google.com/presentation/d/1Nc26FKbXXUnKwSmG0W05RxAWj2WcX1OirJsVjsqQexE/edit?slide=id.g3ef8cb1f909_2_15#slide=id.g3ef8cb1f909_2_15" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <span>Vonage Business Setup Guide</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        /* Premium Dashboard Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
 
-                <a href="https://docs.google.com/presentation/d/1YbZa2DxFiDH-qYSsva4k94zt02QD-nC0/edit?slide=id.p1#slide=id.p1" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    <span>Google Calendar Student Booking Page Setup Guide</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        /* Clean UI Interactive Tiles (Crisp Solid White) */
+        .tile {
+            background: #ffffff !important; /* Solid bright white */
+            border: 1px solid #64748b;
+            border-radius: 12px;
+            padding: 2.25rem 1.5rem;
+            text-decoration: none;
+            color: #0A2540;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(10, 37, 64, 0.12);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 160px;
+        }
 
-                <a href="https://docs.google.com/document/d/1-sOo0nl1iZ5ureutlZwi0WQROtquuzoJCWcEyyLhjmw/edit?tab=t.0" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
-                    <span>Lab Assistant Training Agenda</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
-            </div>
-        </section>
+        .tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #0A2540;
+            transition: background-color 0.25s ease;
+        }
 
-        <section class="row-section">
-            <h2 class="row-title">Student Hub Links & Classroom Feeds</h2>
-            <div class="grid-container">
-                <a href="https://robertteney.github.io/MTF-STUDENT-DASHBOARD/" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                    <span>MTF Student Dashboard</span>
-                    <div class="sub-label shareable">Student Shareable</div>
-                </a>
+        .tile span {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
 
-                <a href="https://drive.google.com/drive/folders/1FcTq6R-BDbNvylayllrkQzTPBrfPEIUT" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-                    <span>MTF Boot Camps Slides</span>
-                    <div class="sub-label internal">Internal Use Only</div>
-                </a>
+        .tile .sub-label {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.25s ease;
+        }
 
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdqT9EBeTExEceesDqmnk6kZXmB2yyf2A7-HdgZcZZFD6tV9g/viewform" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    <span>Support Staff & One-on-One Links</span>
-                    <div class="sub-label shareable">Student Shareable</div>
-                </a>
+        .tile svg {
+            width: 38px;
+            height: 38px;
+            fill: none;
+            stroke: #0A2540;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: all 0.25s ease;
+            margin-bottom: 0.4rem;
+        }
 
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYA3zp5tHf-YDPhbe-ora5x1YmQLBs3muBkX83fID_iBiEOw/viewform" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M12 2v2M4.22 4.22l1.42 1.42M1 12h2M21 12h2M18.36 5.64l1.42-1.42M23 22H1M16 22a4 4 0 0 0-8 0"/></svg>
-                    <span>Morning Boot Camps w/Zoom Links</span>
-                    <div class="sub-label shareable">Student Shareable</div>
-                </a>
+        .tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 28px rgba(10, 37, 64, 0.25);
+            border-color: #0A2540;
+        }
 
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSezWjYxOTJxT-ZwwDwDsY8nTbL849oDRv8GxGh6NlnxU4xiqw/viewform" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-                    <span>Evening Boot Camps w/Zoom Links</span>
-                    <div class="sub-label shareable">Student Shareable</div>
-                </a>
+        .tile:hover::before {
+            background-color: #00A3E0; /* Brighter Blue Accent on hover */
+        }
 
-                <a href="https://www.myccmasterycourses.com/" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
-                    <span>Saturday Mastery Courses</span>
-                    <div class="sub-label shareable">Student Shareable</div>
-                </a>
-            </div>
-        </section>
+        .tile:hover svg {
+            stroke: #00A3E0; /* Brighter Blue Accent on hover */
+            transform: scale(1.08);
+        }
 
-        <section class="row-section">
-            <h2 class="row-title">Shareable Course Repositories</h2>
-            <div class="grid-container">
-                <a href="https://drive.google.com/drive/folders/1HimO_m2HJEvgxhAUguOelrNvzJOKH6ev" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    <span>A+ 220-1201 Study Material</span>
-                    <div class="sub-label shareable">Student Shareable</div>
-                </a>
+        .tile:hover .sub-label {
+            color: #00A3E0;
+        }
 
-                <a href="https://drive.google.com/drive/folders/1Sdn3aKzxEi1QG3hqDDtMnBfuWIV6Zeno" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    <span>A+ 220-1202 Study Material</span>
-                    <div class="sub-label shareable">Student Shareable</div>
-                </a>
+        /* Shared Modal Configurations */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 37, 64, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
 
-                <a href="https://drive.google.com/drive/folders/10JZ4YHSF-U63bE9-4B7ScOdZLfkTDztM" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="10" x2="6" y2="14"/><line x1="18" y1="10" x2="18" y2="14"/></svg>
-                    <span>Network+ N10-009 Material</span>
-                    <div class="sub-label shareable">Student Shareable</div>
-                </a>
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
-                <a href="https://drive.google.com/drive/folders/1aFnn1BfLLG2nq1ugOuzbCTXNaLBTjHPR" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    <span>Security+ SY0-701 Material</span>
-                    <div class="sub-label shareable">Student Shareable</div>
-                </a>
+        .modal-content {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 16px;
+            max-width: 580px;
+            width: 90%;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            border-top: 6px solid #0A2540;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
 
-                <a href="https://drive.google.com/drive/folders/14sohq92FIYp6_KosbJZuyNw7AjXx3gyo" target="_blank" class="tile">
-                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    <span>CySA+ CS0-003 Study Material</span>
-                    <div class="sub-label shareable">Student Shareable</div>
-                </a>
-            </div>
-        </section>
+        .modal-overlay.open .modal-content {
+            transform: translateY(0);
+        }
 
-    </main>
+        .modal-content h2 {
+            color: #0A2540;
+            margin-bottom: 1.25rem;
+            font-size: 1.8rem;
+        }
 
-    <div id="aboutModal" class="modal-overlay" onclick="closeAllModals()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <h2>What is the MTF?</h2>
-            <p>The <strong>MTF (Maximum Time Frame)</strong> period is a designated timeframe after a student graduates to continue preparing for and taking their certification exams!</p>
-            <button class="close-btn" onclick="closeAllModals()">Return to Dashboard</button>
-        </div>
-    </div>
+        .modal-content h3 {
+            color: #0A2540;
+            margin-top: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
 
-    <div id="limitationsModal" class="modal-overlay" onclick="closeAllModals()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <h2>MTF Voucher Limitations</h2>
-            <p style="margin-bottom: 1rem;">Please keep the following critical policy limitations in mind:</p>
-            <ul class="modal-list">
-                <li>Students can only have <strong>ONE</strong> active voucher at a time.</li>
-                <li>Students are approved for up to a <strong>4th attempt</strong> at an exam.</li>
-                <li>Any certification voucher requested must be completed by the student's designated <strong>MTF expiration date</strong>.</li>
-            </ul>
-            <button class="close-btn" onclick="closeAllModals()">Return to Dashboard</button>
-        </div>
-    </div>
+        .modal-content p {
+            color: #475569;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
 
-    <footer>
-        &copy; 2026 MyComputerCareer MTF Operational Command. All Rights Reserved.
-    </footer>
+        .modal-content a {
+            color: #00A3E0;
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-    <script>
+        .modal-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modern Bullet List for Modal Content */
+        .modal-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .modal-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        .modal-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #00A3E0; /* Brighter Blue Accent */
+            font-weight: bold;
+        }
+
+        .close-btn {
+            background-color: #0A2540;
+            color: #ffffff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .close-btn:hover {
+            background-color: #00A3E0; /* Brighter Blue Accent on hover */
+        }
+
+        /* Custom Layout for Study Plan Modal Components */
+        .study-plan-container {
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .study-plan-container details {
+            margin-top: 1.25rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 0.5rem 1rem 1rem 1rem;
+            background-color: #ffffff;
+            transition: background-color 0.2s ease;
+        }
+
+        .study-plan-container details[open] {
+            background-color: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .study-plan-container summary {
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+            padding: 0.5rem 0;
+        }
+
+        .study-plan-container summary h3 {
+            display: inline-block;
+            color: #0A2540;
+            margin: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+            font-size: 1.25rem;
+        }
+
+        .study-plan-container ul {
+            padding-left: 1.25rem;
+            margin-bottom: 1.25rem;
+            list-style-type: disc;
+        }
+
+        .study-plan-container li {
+            margin-bottom: 0.4rem;
+            color: #334155;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .resource-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #00A3E0;
+            padding: 1.25rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+        }
+
+        .resource-box h4 {
+            color: #0A2540;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-box p {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            color: #334155;
+        }
+
+        .resource-box ul {
+            margin-bottom: 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+            color: #1e293b;
+            line-height: 1.4;
+        }
+
+        .checkbox-item input {
+            margin-top: 0.25rem;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .slides-alert-text {
+            font-size: 0.95rem;
+            color: #475569;
+            font-style: italic;
+            margin: 0.25rem 0 1rem 0;
+        }
+
+        .modal-action-bar {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            position: sticky;
+            bottom: 0;
+            background: #ffffff;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .download-btn, .fullscreen-btn {
+            background-color: #00A3E0;
+            color: #ffffff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .download-btn:hover, .fullscreen-btn:hover {
+            background-color: #0A2540;
+        }
+
+        footer {
+            background-color: #0A2540;
+            color: #ffffff;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        /* Universal Optimization Media Print Logic */
+        @media print {
+            body * {
+                display: none !important;
+            }
+            .modal-overlay.open, .modal-overlay.open * {
+                display: block !important;
+            }
+            .modal-overlay.open {
+                position: relative;
+                background: none !important;
+                backdrop-filter: none !important;
+                display: block !important;
+                opacity: 1 !important;
+                pointer-events: auto !important;
+            }
+            .modal-overlay.open .modal-content {
+                max-width: 100% !important;
+                width: 100% !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                overflow-y: visible !important;
+                display: block !important;
+            }
+            .modal-action-bar, input[type="checkbox"] {
+                display: none !important;
+            }
+            .checkbox-item::before {
+                content: "[  ] " !important;
+                font-family: monospace !important;
+                font-weight: bold !important;
+                white-space: pre !important;
+            }
+            .study-plan-container details {
+                border: none !important;
+                padding: 0 !important;
+                margin: 1.5rem 0 !important;
+            }
+            .study-plan-container h3 {
+                border-bottom: 2px solid #000000 !important;
+                margin-top: 2rem !important;
+                page-break-after: avoid;
+            }
+        }
+
+        /* Holiday closure announcement — independent of dashboard controls */
+        .holiday-notice {
+            max-width: 1200px;
+            width: calc(100% - 4rem);
+            margin: 1.25rem auto 0;
+            padding: 1rem 1.25rem;
+            background: #ffffff;
+            border: 2px solid #b91c1c;
+            border-radius: 10px;
+            color: #b91c1c;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+        @media (max-width: 600px) {
+            .holiday-notice { width: calc(100% - 2rem); }
+        }
+    
+/* COMPLETE WORKSPACE REDESIGN */
+:root{--deep:#08192a;--sidebar:#0a1b2d;--ink:#142b42;--muted:#687c90;--aqua:#05c3c7;--blue:#0b83b8}
+html{scroll-behavior:smooth}body{background:#f1f5f9;color:var(--ink);display:block;font-family:Segoe UI,system-ui,sans-serif}
+.app-shell{display:flex;min-height:100vh}.command-sidebar{width:260px;flex:0 0 260px;background:var(--sidebar);color:#fff;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:27px 17px;z-index:15;border-right:1px solid #18364f}
+.brand{display:flex;align-items:center;gap:12px;margin:0 8px 46px}.brand-mark{background:linear-gradient(135deg,#0cb8c8,#2369c4);width:43px;height:43px;display:grid;place-items:center;border-radius:12px;font-size:19px;font-weight:900;box-shadow:0 7px 20px #00b3d033}.brand-mark span{color:#b7ffff}.brand strong{font-size:13px;display:block;letter-spacing:-.03em}.brand small{display:block;font-size:9px;letter-spacing:.14em;color:#83a7c1;margin-top:4px}
+.sidebar-caption{font-size:10px;letter-spacing:.18em;color:#6687a0;margin:0 14px 12px;font-weight:800}.sidebar-secondary{margin-top:35px}.sub-nav{background:transparent;border:0;box-shadow:none;padding:0;display:flex;flex-direction:column;gap:5px}.nav-tab{display:flex;align-items:center;gap:13px;color:#b2c9da;padding:13px 14px;border-radius:9px;text-align:left;font-size:13px;width:100%;font-weight:600}.nav-tab span{font-size:13px}.nav-tab.active,.nav-tab:hover{background:#16364c;color:#e7ffff}.nav-tab.active{box-shadow:inset 3px 0 #06c9cd}.nav-tab.active::after{display:none}.section-links{display:flex;flex-direction:column;gap:3px}.section-links a{display:flex;gap:12px;align-items:center;color:#6095b0;font-size:11px;padding:11px 13px;text-decoration:none;border-radius:8px;font-weight:700}.section-links a span{color:#b6c9d9;font-size:12px;font-weight:500}.section-links a:hover{background:#14364e}.sidebar-bottom{margin-top:auto;border-top:1px solid #264154;padding:22px 10px 0;color:#b7e3e7;font-size:9px;letter-spacing:.08em;font-weight:800}.sidebar-bottom small{display:block;margin:8px 0 0 14px;color:#718ea4;font-size:10px;letter-spacing:0;font-weight:400}.online-dot,.live-indicator{display:inline-block;width:7px;height:7px;background:#15d8ac;border-radius:50%;box-shadow:0 0 0 4px #15d8ac18;margin-right:7px}
+.workspace{min-width:0;flex:1}.topbar{height:66px;padding:0 clamp(22px,4vw,55px);display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid #e0e8ef;color:#8292a2;font-size:10px;letter-spacing:.12em;font-weight:800}.breadcrumb span{padding:0 11px;color:#c0ceda}.topbar-right{display:flex;align-items:center;gap:9px}.topbar-divider{width:1px;height:19px;background:#dae3ea;margin:0 12px}
+.hero{background:radial-gradient(circle at 83% 48%,#164e70 0%,transparent 36%),linear-gradient(125deg,#0a2034,#0d324b);min-height:325px;padding:52px clamp(25px,5vw,72px);display:flex;justify-content:space-between;gap:30px;overflow:hidden;position:relative}.hero:before{content:"";position:absolute;inset:0;opacity:.14;background-image:linear-gradient(#73b6d3 1px,transparent 1px),linear-gradient(90deg,#73b6d3 1px,transparent 1px);background-size:45px 45px;mask-image:linear-gradient(90deg,transparent 40%,black)}.hero-copy{position:relative;z-index:1;max-width:560px}.eyebrow{color:#4ae4e2;letter-spacing:.19em;font-size:10px;font-weight:800;display:flex;align-items:center;gap:10px}.eyebrow-line{width:25px;height:2px;background:#0bcfd2}.hero h1{color:#fff;font-size:clamp(32px,3.6vw,52px);line-height:1.09;letter-spacing:-.055em;margin:18px 0 16px;font-weight:800}.hero h1 em{font-style:normal;color:#5ce0e2}.hero p{color:#a9c3d5;max-width:520px;font-size:14px;line-height:1.7}.hero-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:24px}.primary-action{background:#06c1c5;color:#06283c!important;text-decoration:none;border-radius:7px;padding:13px 17px;font-size:12px;font-weight:800;display:inline-flex;gap:22px}.secondary-action{color:#c6e2ef;text-decoration:none;font-size:12px;font-weight:700}.hero-graphic{width:290px;min-width:240px;position:relative;align-self:stretch}.orbit{position:absolute;border:1px solid #48cde14d;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}.orbit-one{width:180px;height:180px}.orbit-two{width:250px;height:250px;border-style:dashed}.orbit-three{width:310px;height:310px;border-color:#48cde122}.core-hex{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:128px;height:128px;background:#0e3d57;border:2px solid #40cdd7;clip-path:polygon(25% 5%,75% 5%,100% 50%,75% 95%,25% 95%,0 50%);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#e8ffff;font-size:34px;font-weight:900;letter-spacing:-.06em}.core-hex span{font-size:9px;letter-spacing:.27em;color:#57d8e0}.orbit-label{position:absolute;color:#74c6d9;font-size:9px;letter-spacing:.15em;font-weight:800}.label-one{top:8%;left:20%}.label-two{right:-4%;top:48%}.label-three{bottom:7%;left:14%}
+.holiday-notice{width:auto;max-width:none;margin:23px clamp(22px,4vw,55px) 0;padding:14px 18px;background:#fff6f5;border:1px solid #f0c9c6;border-left:4px solid #db3946;color:#ad2a34;display:flex;gap:20px;align-items:center;text-align:left;border-radius:8px;font-size:12px;line-height:1.6;box-shadow:none}.holiday-notice strong{font-size:10px;letter-spacing:.08em;white-space:nowrap}.holiday-notice span{font-weight:600}
+.workspace-tools{margin:38px clamp(22px,4vw,55px) 15px;display:flex;justify-content:space-between;gap:20px;align-items:end}.eyebrow-dark{color:#0c91b3}.workspace-tools h2{font-size:27px;letter-spacing:-.045em;margin:7px 0}.workspace-tools p{color:#73879a;font-size:13px}.search-wrap{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid #d9e3ec;border-radius:9px;padding:0 15px;min-width:min(100%,310px);height:45px;box-shadow:0 3px 12px #1c3b5710}.search-wrap span{font-size:24px;color:#158bb2}.search-wrap input{width:100%;outline:none;border:0;background:transparent;color:#12344a;font-size:12px}.search-status{margin:0 clamp(22px,4vw,55px);font-size:12px;color:#50768b}
+main{max-width:none;margin:0;padding:10px clamp(22px,4vw,55px) 65px}.row-section{margin:26px 0 38px;scroll-margin-top:20px}.row-title{font-size:12px;color:#1d425b;letter-spacing:.09em;border-bottom:1px solid #d8e3ed;padding-bottom:13px;margin-bottom:16px}.row-title::before{background:#00bfc6;height:16px;width:4px}.grid-container{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}.tile{background:#fff!important;min-height:164px;align-items:flex-start;text-align:left;padding:23px 20px 20px;gap:9px;border:1px solid #dce6ee;border-radius:12px;box-shadow:0 5px 14px #0c2d4610;position:relative;cursor:pointer;width:100%;font:inherit}.tile::before{height:0}.tile:after{content:"↗";position:absolute;right:18px;top:18px;color:#91a8b8;font-size:16px}.tile:not([href]):after{content:"＋"}.tile svg{width:31px;height:31px;stroke:#0b8eb3;margin-bottom:9px}.tile span{font-size:14px;font-weight:750;color:#173a55;line-height:1.4}.tile .sub-label{font-size:11px;color:#71879b;font-weight:500}.tile:hover{transform:translateY(-4px);box-shadow:0 15px 25px #0c2d4624;border-color:#32afc5}.tile:hover svg{stroke:#0b8eb3;transform:none}.tile:hover .sub-label{color:#50839c}
+.modal-overlay{background:rgba(5,19,34,.76);backdrop-filter:blur(6px)}.modal-content{border:1px solid #d7e7ef;border-top:5px solid #08aebf;box-shadow:0 28px 75px #0007;border-radius:16px}.modal-content a{color:#087ba5;text-decoration:underline;text-underline-offset:2px}.study-plan-container details{background:#f7fafc;border-color:#d3e2ec}.study-plan-container details[open]{background:#fff;border-color:#77c6d6}.resource-box{background:#eff8fc}.modal-action-bar{z-index:2}footer{background:#08192a}
+.tile:focus-visible,.nav-tab:focus-visible,.section-links a:focus-visible,.modal-content button:focus-visible{outline:3px solid #00c4ca;outline-offset:3px}
+@media(max-width:1100px){.command-sidebar{width:215px;flex-basis:215px}.hero-graphic{width:210px;min-width:180px}.orbit-three{width:230px;height:230px}.orbit-two{width:200px;height:200px}.orbit-one{width:150px;height:150px}}
+@media(max-width:760px){.app-shell{display:block}.command-sidebar{position:relative;width:100%;height:auto;padding:15px;display:block}.brand{margin:0 0 14px}.sidebar-caption,.sidebar-secondary,.section-links,.sidebar-bottom{display:none}.sub-nav{flex-direction:row;flex-wrap:wrap}.nav-tab{width:auto;padding:10px 12px}.topbar{height:48px;padding:0 20px}.topbar-right{display:none}.hero{padding:34px 24px;min-height:auto}.hero-graphic{display:none}.holiday-notice{margin:15px 18px 0;display:block}.holiday-notice strong{display:block;margin-bottom:5px}.workspace-tools{margin:28px 18px 12px;display:block}.search-wrap{margin-top:16px;max-width:none}main{padding:10px 18px 45px}.grid-container{grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr))}.modal-content{padding:1.3rem;width:95%}.modal-action-bar{flex-wrap:wrap;gap:5px}.modal-action-bar button{margin-top:5px}}
+@media print{.command-sidebar,.hero,.topbar,.workspace-tools,.holiday-notice,.search-status{display:none!important}}
+
+/* Holiday alert visibility enhancement — isolated visual changes */
+.holiday-notice {
+  background:linear-gradient(105deg,#fff0ed 0%,#fff8f1 100%);
+  border:2px solid #e75b4c; border-left:7px solid #d52d37;
+  padding:20px 24px; border-radius:12px;
+  box-shadow:0 8px 24px rgba(172,46,42,.16);
+  color:#92202b; font-size:14px; line-height:1.65;
+  gap:22px;
+}
+.holiday-notice::before {content:"⚠";font-size:26px;line-height:1;color:#c72b36;flex:0 0 auto;}
+.holiday-notice strong {font-size:12px;letter-spacing:.1em;color:#a71e2d;min-width:170px;}
+.holiday-notice span {font-weight:700;color:#832632;}
+@media(max-width:760px){.holiday-notice{padding:17px 18px;gap:10px}.holiday-notice::before{display:inline-block;margin-bottom:8px}.holiday-notice strong{margin-bottom:6px}}
+
+
+/* Staff-specific page routing and tile safeguards */
+.section-links button{background:transparent;border:0;cursor:pointer;width:100%;display:flex;gap:12px;align-items:center;text-align:left;color:#b2c9da;font-size:12px;padding:12px 13px;border-radius:8px;font-weight:650}
+.section-links button span{font-size:12px}.section-links button:hover,.section-links button.active{background:#16364c;color:#e7ffff}.section-links button.active{box-shadow:inset 3px 0 #06c9cd}
+.staff-home{padding:43px clamp(22px,4vw,55px) 10px}.home-intro{max-width:780px;margin-bottom:30px}.home-intro h2{font-size:clamp(25px,3vw,38px);letter-spacing:-.05em;margin:12px 0}.home-intro p{font-size:14px;color:#657f93;line-height:1.8}
+.staff-home .row-title{margin-bottom:18px}.home-grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}.home-tile{border:1px solid #dce6ee}.home-tile:after{content:'→'!important}
+.workspace main .row-section{display:none}.workspace main .row-section.staff-visible{display:block}.staff-home[hidden]{display:none!important}
+.resource-page-hero{background:linear-gradient(120deg,#0b2840,#10506b);color:#fff;min-height:185px;border-radius:15px;padding:30px 34px;display:flex;justify-content:space-between;overflow:hidden;margin-bottom:25px;position:relative}.resource-page-copy{position:relative;z-index:1}.resource-page-kicker{color:#62e2e3;font-size:10px;letter-spacing:.17em;font-weight:800}.resource-page-hero h2{color:#fff;font-size:clamp(25px,3vw,36px);margin:14px 0}.resource-page-description{font-size:13px;color:#b7d1df;line-height:1.6}.resource-page-visual{position:relative;width:160px;flex:0 0 160px}.tech-ring{position:absolute;inset:0;border:1px solid #39cbd45c;border-radius:50%}.tech-ring-b{inset:22px;border-style:dashed}.tech-center{position:absolute;inset:50px 37px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0c4059;border:1px solid #49cdd9;border-radius:12px;font-weight:900}.tech-center small{font-size:7px;letter-spacing:.1em;color:#79d7df}
+.tile .sub-label.internal,.tile:hover .sub-label.internal{color:#c52236!important;font-weight:800!important}.tile .sub-label.shareable,.tile:hover .sub-label.shareable{color:#16803e!important;font-weight:750!important}
+.primary-action,.secondary-action{border:0;cursor:pointer;font-family:inherit}.secondary-action{background:none}.workspace main{padding-top:18px}
+@media(max-width:760px){.staff-home{padding:28px 18px 8px}.resource-page-hero{padding:25px 20px}.resource-page-visual{display:none}.section-links{display:flex!important;flex-direction:row;overflow-x:auto;gap:4px}.section-links button{flex:0 0 auto;width:auto;white-space:nowrap}.sidebar-secondary{display:block!important;margin:14px 0 6px}.command-sidebar{padding-bottom:15px}}
+</style><style>
+.mtf-help-launch{position:fixed;right:25px;bottom:23px;z-index:2000;background:#0b344d;color:#fff;border:2px solid #39d6dc;border-radius:999px;box-shadow:0 12px 30px #09243b55;padding:14px 20px;font:700 13px Segoe UI,sans-serif;cursor:pointer}.mtf-help-panel{position:fixed;right:24px;bottom:86px;width:min(390px,calc(100vw - 28px));height:min(540px,calc(100vh - 120px));z-index:2001;background:#fff;border:1px solid #a9d8e1;border-radius:16px;box-shadow:0 20px 70px #061e3655;display:flex;flex-direction:column;overflow:hidden}.mtf-help-panel[hidden]{display:none}.mtf-help-head{background:#0a2b43;color:#fff;padding:17px;display:flex;justify-content:space-between;align-items:center}.mtf-help-head strong,.mtf-help-head small{display:block}.mtf-help-head small{color:#9fd3df;font-size:11px;margin-top:5px}.mtf-help-head button{background:none;border:0;color:#fff;font-size:25px;cursor:pointer}.mtf-help-messages{flex:1;overflow-y:auto;padding:17px;background:#f3f8fb;display:flex;flex-direction:column;gap:12px}.help-bubble{max-width:95%;padding:11px 13px;border-radius:12px;font-size:13px;line-height:1.6;overflow-wrap:anywhere}.help-bubble.bot{background:#fff;border:1px solid #d9e6ed;align-self:flex-start}.help-bubble.user{background:#d7f6f5;align-self:flex-end}.help-bubble a{color:#087da1;font-weight:700}.mtf-help-form{display:flex;gap:7px;padding:12px;border-top:1px solid #dce7ee}.mtf-help-form input{min-width:0;flex:1;padding:12px;border:1px solid #cbdde8;border-radius:8px;font:12px Segoe UI,sans-serif}.mtf-help-form button{border:0;background:#067fa0;color:white;border-radius:8px;padding:0 15px;cursor:pointer;font-weight:700}
+</style><style id="staff-purpose-style">.staff-purpose{max-width:920px;background:#fff;border:1px solid #dce6ee;border-left:5px solid #06bfc7;border-radius:13px;padding:30px 34px;margin:18px 0 34px;box-shadow:0 8px 24px #0c2d460d}.staff-purpose-kicker{color:#078da7;font-size:11px;font-weight:800;letter-spacing:.16em}.staff-purpose h3{font-size:clamp(21px,2.5vw,29px);color:#153950;letter-spacing:-.035em;margin:12px 0 16px}.staff-purpose p{color:#536f82;font-size:14px;line-height:1.85;margin:0 0 15px}.staff-purpose .staff-purpose-note{background:#edf9fa;padding:15px 18px;border-radius:8px;margin:20px 0 0;color:#17485b}@media(max-width:760px){.staff-purpose{padding:23px 20px}}</style><style>/* Home-only staff alerts */.staff-home-alerts{margin:0 0 30px}.staff-home-alerts .holiday-notice{margin:0 0 14px;width:100%;max-width:none}.staff-home-alerts .exam-retirement-alert{margin:0;display:flex;gap:16px;align-items:flex-start;padding:17px 20px;background:#fff8e8;border:1px solid #eacb85;border-left:5px solid #d48b16;border-radius:10px;color:#734916;box-shadow:0 5px 18px #442b0b10}.staff-home-alerts .retirement-icon{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#d98a1a;color:white;font-weight:900;font-size:18px}.staff-home-alerts .exam-retirement-alert strong{font-size:12px;letter-spacing:.055em}.staff-home-alerts .exam-retirement-alert p{font-size:12px;line-height:1.65;margin:6px 0 0;color:#76532a}@media(max-width:650px){.staff-home-alerts .exam-retirement-alert{padding:14px}}@media print{.staff-home-alerts{display:none!important}}</style></head>
+<body><div class="app-shell"><aside aria-label="Staff navigation" class="command-sidebar"><div class="brand"><div class="brand-mark">M<span>+</span></div><div><strong>MyComputerCareer</strong><small>MTF STAFF PORTAL</small></div></div><div class="sidebar-caption">WORKSPACE</div><nav aria-label="Dashboard pages" class="sub-nav">
+<button class="nav-tab active" id="dashboardTab" onclick="closeAllModals();window.staffShowPage('section-overview')">◫ <span>Home &amp; Updates</span></button>
+<button class="nav-tab" id="aboutTab" onclick="openModal('aboutModal', 'aboutTab')">ⓘ <span>About MTF</span></button>
+<button class="nav-tab" id="limitationsTab" onclick="openModal('limitationsModal', 'limitationsTab')">◇ <span>MTF Limitations</span></button>
+</nav><div class="sidebar-caption sidebar-secondary">RESOURCE PAGES</div><nav aria-label="Staff resource pages" class="section-links"><button aria-controls="section-overview" aria-selected="true" class="section-tab active" data-section="section-overview" type="button">⌂ <span>Home &amp; Updates</span></button><button aria-controls="section-1" aria-selected="false" class="section-tab" data-section="section-1" type="button">01 <span>Salesforce Tracking &amp; Analytics</span></button><button aria-controls="section-2" aria-selected="false" class="section-tab" data-section="section-2" type="button">02 <span>MTF Administration &amp; Logs</span></button><button aria-controls="section-3" aria-selected="false" class="section-tab" data-section="section-3" type="button">03 <span>Procedures &amp; Training Agendas</span></button><button aria-controls="section-4" aria-selected="false" class="section-tab" data-section="section-4" type="button">04 <span>Student Hub Links &amp; Classroom Feeds</span></button></nav><div class="sidebar-bottom"><span class="online-dot"></span> STAFF RESOURCE CENTER<small>Internal operational workspace</small></div></aside><div class="workspace"><header class="topbar"><div class="breadcrumb">STAFF PORTAL <span>/</span> MTF WORKSPACE</div><div class="topbar-right"><span class="live-indicator"></span> STAFF RESOURCE HUB <span class="topbar-divider"></span> MYCOMPUTERCAREER</div></header><div class="hero"><div class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span> STAFF OPERATIONS COMMAND CENTER</div><h1>Support students.<br/><em>Track success.</em></h1><p>One organized workspace for MTF reporting, staff procedures, training resources, and student support.</p><div class="hero-actions"><button class="primary-action" onclick="staffShowPage('section-1')" type="button">View staff resources <span>↗</span></button><button class="secondary-action" onclick="document.getElementById('mtfHelpLaunch').click()" type="button">Ask Staff Assistant →</button></div></div><div aria-hidden="true" class="hero-graphic"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="core-hex">MTF<span>STAFF</span></div><div class="orbit-label label-one">SUPPORT</div><div class="orbit-label label-two">TRACK</div><div class="orbit-label label-three">SUCCEED</div></div></div><section class="staff-home" id="section-overview"><div class="staff-home-alerts"><aside class="holiday-notice" role="status" aria-label="Holiday closure notice"><strong>HOLIDAY CLOSURE ALERT</strong><span>Thanksgiving: November 26–27, 2026 &nbsp; • &nbsp; Holiday break: December 20–27, 2026 &nbsp; • &nbsp; New Year's Day: January 1, 2027</span></aside><aside class="exam-retirement-alert" role="status" aria-label="CySA+ exam retirement notice"><span class="retirement-icon" aria-hidden="true">!</span><div><strong>CompTIA CySA+ CS0-003 RETIREMENT NOTICE</strong><p>CompTIA CySA+ exam version <b>CS0-003</b> retires on <b>December 22, 2026</b>. Students preparing for this version should review their exam timeline and contact an MTF instructor if they need guidance.</p></div></aside></div><div class="home-intro"><div class="eyebrow eyebrow-dark">WELCOME TO THE MTF STAFF WORKSPACE</div><h2>Staff resources, all in one place.</h2><p>Select a resource page from the left navigation to access its original links and tools. Staff-only resources remain clearly labeled and should not be shared with students.</p><div class="staff-purpose"><div class="staff-purpose-kicker">OUR PURPOSE</div><h3>Helping students move forward, one certification at a time.</h3><p>MTF staff support graduates as they prepare for certification exams, overcome challenges, and work toward their career goals. Our role is to provide clear guidance, encouragement, accountability, and access to the right resources so students can make informed decisions and stay engaged throughout their certification journey.</p><p>Through personalized one-on-one assistance, targeted boot camps, exam scheduling guidance, timely follow-ups, and accurate progress tracking, we help students identify areas for improvement, build confidence, and take meaningful next steps—even after an unsuccessful exam attempt.</p><p class="staff-purpose-note"><strong>Our commitment:</strong> Every student deserves professional, consistent, and supportive communication focused on progress, preparation, and long-term success.</p></div></div></section><main>
+<section class="row-section" id="section-1"><div class="resource-page-hero"><div class="resource-page-copy"><span class="resource-page-kicker">MTF STAFF RESOURCES</span><h2>Salesforce Tracking &amp; Analytics</h2><p class="resource-page-description">Select a resource below to open the original staff tool or document.</p></div><div aria-hidden="true" class="resource-page-visual"><div class="tech-ring tech-ring-a"></div><div class="tech-ring tech-ring-b"></div><div class="tech-center">MTF<small>STAFF NODE</small></div></div></div>
+<h2 class="row-title">Salesforce Tracking &amp; Analytics</h2>
+<div class="grid-container">
+<a class="tile" href="https://docs.google.com/spreadsheets/d/1H86lTzWc0CIcWjIUdAGXcKUrpnzdkXjbQwt27Q2hWAo/edit?gid=460294987#gid=460294987" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="3"></rect><line x1="9" x2="9" y1="3" y2="21"></line><line x1="15" x2="15" y1="3" y2="21"></line><line x1="3" x2="21" y1="9" y2="9"></line><line x1="3" x2="21" y1="15" y2="15"></line></svg>
+<span>CWP MTF Certification Command Center</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://mycomputercareeredu.lightning.force.com/lightning/r/Report/00OVK000006Yhwj/view" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg>
+<span>CWP MTF Unknown Results</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://mycomputercareeredu.lightning.force.com/lightning/r/Report/00OVK000006YcvR/view" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M16 13H8M16 17H8"></path></svg>
+<span>CWP MTF Weekly Testing Results</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://mycomputercareeredu.lightning.force.com/lightning/r/Report/00OVK000006YkPx/view" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span># of Exams Scheduled This Week</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://mycomputercareeredu.lightning.force.com/lightning/r/Report/00OVK000006obwz/view" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+<span>Active Non-Scheduled Vouchers</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://mycomputercareeredu.lightning.force.com/lightning/r/Report/00OVK000009Divh/view" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"></path></svg>
+<span>MTF Active GT's w/PV Cases</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+</div>
+</section>
+<section class="row-section" id="section-2"><div class="resource-page-hero"><div class="resource-page-copy"><span class="resource-page-kicker">MTF STAFF RESOURCES</span><h2>MTF Administration &amp; Logs</h2><p class="resource-page-description">Select a resource below to open the original staff tool or document.</p></div><div aria-hidden="true" class="resource-page-visual"><div class="tech-ring tech-ring-a"></div><div class="tech-ring tech-ring-b"></div><div class="tech-center">MTF<small>STAFF NODE</small></div></div></div>
+<h2 class="row-title">MTF Administration &amp; Logs</h2>
+<div class="grid-container">
+<a class="tile" href="https://docs.google.com/spreadsheets/d/1jSsgSFz8Ply0zgJzVZG2a6p_0Mau8EgjAX8OKLK15p8/edit?gid=1765999044#gid=1765999044" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
+<span>Year over Year MTF Passes</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://docs.google.com/forms/d/e/1FAIpQLScR4k2mClVjhHggrb5_r5s-jwodXihJ8OrnSXh2k0-TRz_DiQ/viewform" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+<span>Lab Assistant Voucher Request Form</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://docs.google.com/forms/d/e/1FAIpQLSdd7fSe4aJRpbEGrn7U4O1jH1X7_32kzfhfjLVYg0cDvyczkQ/viewform?vc=0&amp;c=0&amp;w=1&amp;flr=0" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3M15.5 7.5L14 6"></path></svg>
+<span>MeasureUp Key Request Form</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://docs.google.com/spreadsheets/d/1AfvqnIKvZYEgx-EaB7tBUonPQJuh19jAzi-ZpujJmEI/edit?gid=1111021525#gid=1111021525" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+<span>MTF Boot Camp Assignment Sheet</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://docs.google.com/spreadsheets/d/1mlcN005dnSYUhP-WNai8g3IcHrMaxXtz0SPd9h-V2aw/edit?gid=1001740917#gid=1001740917" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+<span>MTF End of Day Check List</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+</div>
+</section>
+<section class="row-section" id="section-3"><div class="resource-page-hero"><div class="resource-page-copy"><span class="resource-page-kicker">MTF STAFF RESOURCES</span><h2>Procedures &amp; Training Agendas</h2><p class="resource-page-description">Select a resource below to open the original staff tool or document.</p></div><div aria-hidden="true" class="resource-page-visual"><div class="tech-ring tech-ring-a"></div><div class="tech-ring tech-ring-b"></div><div class="tech-center">MTF<small>STAFF NODE</small></div></div></div>
+<h2 class="row-title">Procedures &amp; Training Agendas</h2>
+<div class="grid-container">
+<a class="tile" href="https://docs.google.com/spreadsheets/d/1kVIhEA3Mn-tQkBeGYDDixmBR9wjgDpj2LMeT4BIQMXQ/edit?gid=0#gid=0" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><rect height="20" rx="2" width="16" x="4" y="2"></rect><line x1="8" x2="16" y1="6" y2="6"></line><line x1="16" x2="16" y1="14" y2="18"></line><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"></path></svg>
+<span>Exam Score Calculator Estimator</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://docs.google.com/document/d/1LDz-lygT2vLAbWPvExezz5-lBPt2jS17bvho9W2msGg/edit?tab=t.0" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"></path></svg>
+<span>MTF Procedures</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://docs.google.com/document/d/1HUiux34jKF1cdu3ghZaDoi1hZ9twbDZu-DcR6K6m7Cg/edit?tab=t.0" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+<span>MTF Student Response Playbook</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://docs.google.com/presentation/d/1Nc26FKbXXUnKwSmG0W05RxAWj2WcX1OirJsVjsqQexE/edit?slide=id.g3ef8cb1f909_2_15#slide=id.g3ef8cb1f909_2_15" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+<span>Vonage Business Setup Guide</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://docs.google.com/presentation/d/1YbZa2DxFiDH-qYSsva4k94zt02QD-nC0/edit?slide=id.p1#slide=id.p1" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Google Calendar Student Booking Page Setup Guide</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://docs.google.com/document/d/1-sOo0nl1iZ5ureutlZwi0WQROtquuzoJCWcEyyLhjmw/edit?tab=t.0" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v6l4 2"></path></svg>
+<span>Lab Assistant Training Agenda</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+</div>
+</section>
+<section class="row-section" id="section-4"><div class="resource-page-hero"><div class="resource-page-copy"><span class="resource-page-kicker">MTF STAFF RESOURCES</span><h2>Student Hub Links &amp; Classroom Feeds</h2><p class="resource-page-description">Select a resource below to open the original staff tool or document.</p></div><div aria-hidden="true" class="resource-page-visual"><div class="tech-ring tech-ring-a"></div><div class="tech-ring tech-ring-b"></div><div class="tech-center">MTF<small>STAFF NODE</small></div></div></div>
+<h2 class="row-title">Student Hub Links &amp; Classroom Feeds</h2>
+<div class="grid-container">
+<a class="tile" href="https://robertteney.github.io/MTF-STUDENT-DASHBOARD/" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M9 21V9"></path></svg>
+<span>MTF Student Dashboard</span>
+<div class="sub-label shareable">Student Shareable</div>
+</a>
+<a class="tile" href="https://drive.google.com/drive/folders/1FcTq6R-BDbNvylayllrkQzTPBrfPEIUT" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+<span>MTF Boot Camps Slides</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
+<a class="tile" href="https://docs.google.com/forms/d/e/1FAIpQLSdqT9EBeTExEceesDqmnk6kZXmB2yyf2A7-HdgZcZZFD6tV9g/viewform" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+<span>Support Staff &amp; One-on-One Links</span>
+<div class="sub-label shareable">Student Shareable</div>
+</a>
+<a class="tile" href="https://docs.google.com/forms/d/e/1FAIpQLSeYA3zp5tHf-YDPhbe-ora5x1YmQLBs3muBkX83fID_iBiEOw/viewform" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M12 2v2M4.22 4.22l1.42 1.42M1 12h2M21 12h2M18.36 5.64l1.42-1.42M23 22H1M16 22a4 4 0 0 0-8 0"></path></svg>
+<span>Morning Boot Camps w/Zoom Links</span>
+<div class="sub-label shareable">Student Shareable</div>
+</a>
+<a class="tile" href="https://docs.google.com/forms/d/e/1FAIpQLSezWjYxOTJxT-ZwwDwDsY8nTbL849oDRv8GxGh6NlnxU4xiqw/viewform" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+<span>Evening Boot Camps w/Zoom Links</span>
+<div class="sub-label shareable">Student Shareable</div>
+</a>
+<a class="tile" href="https://www.myccmasterycourses.com/" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"></path></svg>
+<span>Saturday Mastery Courses</span>
+<div class="sub-label shareable">Student Shareable</div>
+</a>
+</div>
+</section>
+
+</main><footer>
+        © 2026 MyComputerCareer MTF Operational Command. All Rights Reserved.
+    </footer></div></div>
+<div class="modal-overlay" id="aboutModal" onclick="closeAllModals()">
+<div class="modal-content" onclick="event.stopPropagation()">
+<h2>What is the MTF?</h2>
+<p>The <strong>MTF (Maximum Time Frame)</strong> period is a designated timeframe after a student graduates to continue preparing for and taking their certification exams!</p>
+<button class="close-btn" onclick="closeAllModals()">Return to Dashboard</button>
+</div>
+</div>
+<div class="modal-overlay" id="limitationsModal" onclick="closeAllModals()">
+<div class="modal-content" onclick="event.stopPropagation()">
+<h2>MTF Voucher Limitations</h2>
+<p style="margin-bottom: 1rem;">Please keep the following critical policy limitations in mind:</p>
+<ul class="modal-list">
+<li>Students can only have <strong>ONE</strong> active voucher at a time.</li>
+<li>Students are approved for up to a <strong>4th attempt</strong> at an exam.</li>
+<li>Any certification voucher requested must be completed by the student's designated <strong>MTF expiration date</strong>.</li>
+</ul>
+<button class="close-btn" onclick="closeAllModals()">Return to Dashboard</button>
+</div>
+</div>
+<script>
         const tabs = document.querySelectorAll('.nav-tab');
         const modals = document.querySelectorAll('.modal-overlay');
 
@@ -588,6 +1089,51 @@
             document.getElementById('dashboardTab').classList.add('active');
         }
     </script>
-
+<div class="staff-assistant"><button aria-controls="mtfHelpPanel" aria-expanded="false" class="mtf-help-launch" id="mtfHelpLaunch" type="button">✦ MTF Staff Assistant</button><section aria-label="MTF Staff Assistant" class="mtf-help-panel" hidden id="mtfHelpPanel"><div class="mtf-help-head"><div><strong>MTF Staff Assistant</strong><small>Staff resources • Reports • Procedures • Navigation</small></div><button aria-label="Close assistant" id="mtfHelpClose" type="button">×</button></div><div aria-live="polite" class="mtf-help-messages" id="mtfHelpMessages"></div><form class="mtf-help-form" id="mtfHelpForm"><input aria-label="Ask a staff question" autocomplete="off" id="mtfHelpInput" type="search" placeholder="Ask about vouchers, reports, procedures..." required><button type="submit">Send</button></form></section></div>
+<style>.workspace > .hero[hidden]{display:none!important}.mtf-help-panel[hidden]{display:none!important}.help-action{display:block;width:100%;text-align:left;border:1px solid #c7e0ea;background:#f4fbfd;color:#0a4760;border-radius:8px;padding:9px 11px;margin-top:7px;cursor:pointer;font-weight:650;font-size:12px}.help-action:hover{background:#dff6f7}.help-meta{font-size:11px;color:#64748b;margin-top:3px}.help-meta.internal{color:#b91c1c;font-weight:750}.help-meta.shareable{color:#15803d;font-weight:750}</style>
+<script>
+(function(){
+'use strict';
+const sections=[...document.querySelectorAll('main .row-section')],home=document.getElementById('section-overview'),hero=document.querySelector('.workspace > .hero');
+window.staffShowPage=function(id){const isHome=id==='section-overview';home.hidden=!isHome;if(hero)hero.hidden=!isHome;sections.forEach(s=>s.classList.toggle('staff-visible',s.id===id));document.querySelectorAll('.section-tab').forEach(b=>{const active=b.dataset.section===id;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active))});try{window.scrollTo({top:0,behavior:'smooth'})}catch(e){};};
+document.querySelectorAll('.section-tab').forEach(b=>b.addEventListener('click',()=>{if(typeof closeAllModals==='function')closeAllModals();staffShowPage(b.dataset.section)}));
+const launch=document.getElementById('mtfHelpLaunch'),panel=document.getElementById('mtfHelpPanel'),close=document.getElementById('mtfHelpClose'),form=document.getElementById('mtfHelpForm'),input=document.getElementById('mtfHelpInput'),log=document.getElementById('mtfHelpMessages');
+const resources=[...document.querySelectorAll('main a.tile[href]')].map(a=>({name:a.querySelector('span')?.textContent.trim()||a.textContent.trim(),url:a.href,page:a.closest('.row-section')?.querySelector('.row-title')?.textContent.trim()||'',section:a.closest('.row-section')?.id,label:a.querySelector('.sub-label')?.textContent.trim()||''}));
+const topics=[['Vonage setup guide','Vonage'],['Salesforce reports','salesforce'],['Voucher requests','voucher'],['MTF procedures','procedures'],['Boot camps','boot camps'],['Student-shareable links','student shareable'],['Exam results','testing results']];
+function toggle(show){panel.hidden=!show;launch.setAttribute('aria-expanded',String(show));if(show)input.focus()}
+launch.addEventListener('click',()=>{toggle(panel.hidden);if(!panel.hidden&&!log.children.length)welcome()});close.addEventListener('click',()=>toggle(false));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)toggle(false)});
+function bubble(message,who='bot'){const el=document.createElement('div');el.className='help-bubble '+who;if(message)el.textContent=message;log.appendChild(el);log.scrollTop=log.scrollHeight;return el}
+function action(el,label,fn){const b=document.createElement('button');b.type='button';b.className='help-action';b.textContent=label;b.addEventListener('click',fn);el.appendChild(b);return b}
+function welcome(){const el=bubble('What can I help you find? Select a topic or type a question.');topics.forEach(([label,q])=>action(el,label,()=>ask(q)))}
+function showResults(matches){const el=bubble(matches.length===1?'I found this staff resource:':'Here are the most relevant staff resources:');matches.slice(0,12).forEach(r=>{const wrap=document.createElement('div');action(wrap,'Open '+r.name+' ↗',()=>{window.open(r.url,'_blank','noopener,noreferrer');});const meta=document.createElement('div');meta.className='help-meta '+(/internal/i.test(r.label)?'internal':'shareable');meta.textContent=r.label+' • '+r.page;wrap.append(meta);const link=document.createElement('a');link.href=r.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='View on dashboard';link.href='#'+r.section;link.addEventListener('click',e=>{e.preventDefault();staffShowPage(r.section);toggle(false)});link.style.cssText='display:inline-block;font-size:12px;margin:3px 0 9px';wrap.append(link);el.append(wrap)});log.scrollTop=log.scrollHeight}
+const normalize=s=>(s||'').toLowerCase().replace(/one.on.one/g,'one on one').replace(/[^a-z0-9]+/g,' ').trim();
+const stop=new Set('where can i find the a an is are how do to for on in my me please show open get need help with what which staff dashboard resource resources link links page pages of and about setup locate looking search want take go point direct'.split(' '));
+const expansions={voucher:['voucher','vouchers','exam','request'],salesforce:['salesforce','tracking','analytics','report'],report:['report','results','tracking'],results:['results','testing','unknown','passes'],exam:['exam','testing','voucher'],bootcamp:['boot','camp','camps','zoom'],boot:['boot','camp','camps'],schedule:['scheduled','calendar','booking','assignment'],appointment:['booking','calendar','one'],procedure:['procedures','playbook','guide'],policy:['procedures','playbook'],training:['training','boot','camp','agenda'],student:['student','support','shareable'],shareable:['student','shareable'],measureup:['measureup','key'],lab:['lab','assistant'],score:['score','calculator','results'],pass:['passes','results'],checklist:['check','list'],slides:['slides','boot','camp']};
+function ask(query){const q=query.trim();if(!q)return;bubble(q,'user');const norm=normalize(q),tokens=norm.split(' ').filter(t=>t.length>1&&!stop.has(t));if(!tokens.length){welcome();return}const scored=resources.map(r=>{const title=normalize(r.name),page=normalize(r.page),label=normalize(r.label);let score=0;for(const token of tokens){if(title.split(' ').includes(token))score+=9;else if(title.includes(token))score+=5;if(page.includes(token))score+=2;if(label.includes(token))score+=3;for(const syn of expansions[token]||[]){if(syn!==token&&title.split(' ').includes(syn))score+=2}}if(title.includes(norm))score+=25;if(tokens.length&&tokens.every(t=>title.includes(t)))score+=20;return {r,score}}).filter(x=>x.score>=3).sort((a,b)=>b.score-a.score||a.r.name.localeCompare(b.r.name));if(scored.length)showResults(scored.map(x=>x.r));else{const el=bubble('No matching resource was found among the current dashboard tiles. I can locate links and explain where staff tools are, but I cannot access Salesforce records or answer questions using private data.');action(el,'Browse all staff resource pages',()=>{staffShowPage('section-1');toggle(false)});topics.slice(0,3).forEach(([label,term])=>action(el,label,()=>ask(term)))} }
+// Bind both submission methods explicitly and keep visible error feedback.
+let sending=false;
+function submitStaffQuestion(event){
+  if(event)event.preventDefault();
+  if(sending)return false;
+  const question=input.value.trim();
+  if(!question)return false;
+  sending=true;
+  input.value='';
+  try { ask(question); }
+  catch(error){
+    console.error('MTF Staff Assistant search error:',error);
+    bubble('The search could not be completed. Please try again or browse the resource pages.');
+  } finally { sending=false; input.focus(); }
+  return false;
+}
+form.addEventListener('submit',submitStaffQuestion);
+const sendButton=form.querySelector('button[type="submit"]');
+if(sendButton)sendButton.addEventListener('click',submitStaffQuestion);
+input.addEventListener('keydown',event=>{
+  if(event.key==='Enter'&&!event.isComposing){submitStaffQuestion(event);}
+});
+staffShowPage('section-overview');
+})();
+</script>
 </body>
 </html>
