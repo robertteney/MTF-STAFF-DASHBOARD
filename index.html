@@ -949,6 +949,11 @@ main{max-width:none;margin:0;padding:10px clamp(22px,4vw,55px) 65px}.row-section
 <section class="row-section" id="section-2"><div class="resource-page-hero"><div class="resource-page-copy"><span class="resource-page-kicker">MTF STAFF RESOURCES</span><h2>MTF Administration &amp; Logs</h2><p class="resource-page-description">Select a resource below to open the original staff tool or document.</p></div><div aria-hidden="true" class="resource-page-visual"><div class="tech-ring tech-ring-a"></div><div class="tech-ring tech-ring-b"></div><div class="tech-center">MTF<small>STAFF NODE</small></div></div></div>
 <h2 class="row-title">MTF Administration &amp; Logs</h2>
 <div class="grid-container">
+<a class="tile" href="https://script.google.com/a/macros/mycomputercareer.com/s/AKfycbxSYI_Ehs_ELZxXUWg6Sf50I1Y7uUqKt1pCPC77YQ0_3eYSvxbafeUmW9MkL6aZ8Xk1/exec" rel="noopener noreferrer" target="_blank">
+<svg viewbox="0 0 24 24"><rect x="5" y="4" width="14" height="18" rx="2"></rect><rect x="9" y="2" width="6" height="4" rx="1"></rect><path d="m8 13 3 3 5-6"></path></svg>
+<span>MTF Exam Results Management</span>
+<div class="sub-label internal">Internal Use Only</div>
+</a>
 <a class="tile" href="https://docs.google.com/spreadsheets/d/1jSsgSFz8Ply0zgJzVZG2a6p_0Mau8EgjAX8OKLK15p8/edit?gid=1765999044#gid=1765999044" rel="noopener noreferrer" target="_blank">
 <svg viewbox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
 <span>Year over Year MTF Passes</span>
@@ -1024,17 +1029,17 @@ main{max-width:none;margin:0;padding:10px clamp(22px,4vw,55px) 65px}.row-section
 <span>MTF Boot Camps Slides</span>
 <div class="sub-label internal">Internal Use Only</div>
 </a>
-<a class="tile" href="https://docs.google.com/forms/d/e/1FAIpQLSdqT9EBeTExEceesDqmnk6kZXmB2yyf2A7-HdgZcZZFD6tV9g/viewform" rel="noopener noreferrer" target="_blank">
+<a class="tile" href="https://robertteney.github.io/MTF_Support_Team/" rel="noopener noreferrer" target="_blank">
 <svg viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
 <span>Support Staff &amp; One-on-One Links</span>
 <div class="sub-label shareable">Student Shareable</div>
 </a>
-<a class="tile" href="https://docs.google.com/forms/d/e/1FAIpQLSeYA3zp5tHf-YDPhbe-ora5x1YmQLBs3muBkX83fID_iBiEOw/viewform" rel="noopener noreferrer" target="_blank">
+<a class="tile" href="https://robertteney.github.io/Morning_Boot_Camps/" rel="noopener noreferrer" target="_blank">
 <svg viewbox="0 0 24 24"><path d="M12 2v2M4.22 4.22l1.42 1.42M1 12h2M21 12h2M18.36 5.64l1.42-1.42M23 22H1M16 22a4 4 0 0 0-8 0"></path></svg>
 <span>Morning Boot Camps w/Zoom Links</span>
 <div class="sub-label shareable">Student Shareable</div>
 </a>
-<a class="tile" href="https://docs.google.com/forms/d/e/1FAIpQLSezWjYxOTJxT-ZwwDwDsY8nTbL849oDRv8GxGh6NlnxU4xiqw/viewform" rel="noopener noreferrer" target="_blank">
+<a class="tile" href="https://robertteney.github.io/Evening_Boot_Camps/" rel="noopener noreferrer" target="_blank">
 <svg viewbox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
 <span>Evening Boot Camps w/Zoom Links</span>
 <div class="sub-label shareable">Student Shareable</div>
@@ -1099,7 +1104,7 @@ window.staffShowPage=function(id){const isHome=id==='section-overview';home.hidd
 document.querySelectorAll('.section-tab').forEach(b=>b.addEventListener('click',()=>{if(typeof closeAllModals==='function')closeAllModals();staffShowPage(b.dataset.section)}));
 const launch=document.getElementById('mtfHelpLaunch'),panel=document.getElementById('mtfHelpPanel'),close=document.getElementById('mtfHelpClose'),form=document.getElementById('mtfHelpForm'),input=document.getElementById('mtfHelpInput'),log=document.getElementById('mtfHelpMessages');
 const resources=[...document.querySelectorAll('main a.tile[href]')].map(a=>({name:a.querySelector('span')?.textContent.trim()||a.textContent.trim(),url:a.href,page:a.closest('.row-section')?.querySelector('.row-title')?.textContent.trim()||'',section:a.closest('.row-section')?.id,label:a.querySelector('.sub-label')?.textContent.trim()||''}));
-const topics=[['Vonage setup guide','Vonage'],['Salesforce reports','salesforce'],['Voucher requests','voucher'],['MTF procedures','procedures'],['Boot camps','boot camps'],['Student-shareable links','student shareable'],['Exam results','testing results']];
+const topics=[['Vonage setup guide','Vonage'],['Salesforce reports','salesforce'],['Voucher requests','voucher'],['MTF procedures','procedures'],['Boot camps','boot camps'],['Student-shareable links','student shareable'],['Exam results','testing results'],['Exam Results Management','MTF Exam Results Management']];
 function toggle(show){panel.hidden=!show;launch.setAttribute('aria-expanded',String(show));if(show)input.focus()}
 launch.addEventListener('click',()=>{toggle(panel.hidden);if(!panel.hidden&&!log.children.length)welcome()});close.addEventListener('click',()=>toggle(false));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)toggle(false)});
 function bubble(message,who='bot'){const el=document.createElement('div');el.className='help-bubble '+who;if(message)el.textContent=message;log.appendChild(el);log.scrollTop=log.scrollHeight;return el}
@@ -1109,7 +1114,7 @@ function showResults(matches){const el=bubble(matches.length===1?'I found this s
 const normalize=s=>(s||'').toLowerCase().replace(/one.on.one/g,'one on one').replace(/[^a-z0-9]+/g,' ').trim();
 const stop=new Set('where can i find the a an is are how do to for on in my me please show open get need help with what which staff dashboard resource resources link links page pages of and about setup locate looking search want take go point direct'.split(' '));
 const expansions={voucher:['voucher','vouchers','exam','request'],salesforce:['salesforce','tracking','analytics','report'],report:['report','results','tracking'],results:['results','testing','unknown','passes'],exam:['exam','testing','voucher'],bootcamp:['boot','camp','camps','zoom'],boot:['boot','camp','camps'],schedule:['scheduled','calendar','booking','assignment'],appointment:['booking','calendar','one'],procedure:['procedures','playbook','guide'],policy:['procedures','playbook'],training:['training','boot','camp','agenda'],student:['student','support','shareable'],shareable:['student','shareable'],measureup:['measureup','key'],lab:['lab','assistant'],score:['score','calculator','results'],pass:['passes','results'],checklist:['check','list'],slides:['slides','boot','camp']};
-function ask(query){const q=query.trim();if(!q)return;bubble(q,'user');const norm=normalize(q),tokens=norm.split(' ').filter(t=>t.length>1&&!stop.has(t));if(!tokens.length){welcome();return}const scored=resources.map(r=>{const title=normalize(r.name),page=normalize(r.page),label=normalize(r.label);let score=0;for(const token of tokens){if(title.split(' ').includes(token))score+=9;else if(title.includes(token))score+=5;if(page.includes(token))score+=2;if(label.includes(token))score+=3;for(const syn of expansions[token]||[]){if(syn!==token&&title.split(' ').includes(syn))score+=2}}if(title.includes(norm))score+=25;if(tokens.length&&tokens.every(t=>title.includes(t)))score+=20;return {r,score}}).filter(x=>x.score>=3).sort((a,b)=>b.score-a.score||a.r.name.localeCompare(b.r.name));if(scored.length)showResults(scored.map(x=>x.r));else{const el=bubble('No matching resource was found among the current dashboard tiles. I can locate links and explain where staff tools are, but I cannot access Salesforce records or answer questions using private data.');action(el,'Browse all staff resource pages',()=>{staffShowPage('section-1');toggle(false)});topics.slice(0,3).forEach(([label,term])=>action(el,label,()=>ask(term)))} }
+function ask(query){const q=query.trim();if(!q)return;bubble(q,'user');const norm=normalize(q),tokens=norm.split(' ').filter(t=>t.length>1&&!stop.has(t));if(!tokens.length){welcome();return}if(/\b(?:exam results management|(?:pending|completed|past) (?:exam )?submissions|(?:manage|review|view|check|open|access) (?:student )?(?:exam results|exam submissions|score reports)|(?:official )?score reports?)\b/.test(norm)){const management=resources.find(r=>r.name==='MTF Exam Results Management');if(management){showResults([management]);return}}const scored=resources.map(r=>{const title=normalize(r.name),page=normalize(r.page),label=normalize(r.label);let score=0;for(const token of tokens){if(title.split(' ').includes(token))score+=9;else if(title.includes(token))score+=5;if(page.includes(token))score+=2;if(label.includes(token))score+=3;for(const syn of expansions[token]||[]){if(syn!==token&&title.split(' ').includes(syn))score+=2}}if(title.includes(norm))score+=25;if(tokens.length&&tokens.every(t=>title.includes(t)))score+=20;return {r,score}}).filter(x=>x.score>=3).sort((a,b)=>b.score-a.score||a.r.name.localeCompare(b.r.name));if(scored.length)showResults(scored.map(x=>x.r));else{const el=bubble('No matching resource was found among the current dashboard tiles. I can locate links and explain where staff tools are, but I cannot access Salesforce records or answer questions using private data.');action(el,'Browse all staff resource pages',()=>{staffShowPage('section-1');toggle(false)});topics.slice(0,3).forEach(([label,term])=>action(el,label,()=>ask(term)))} }
 // Bind both submission methods explicitly and keep visible error feedback.
 let sending=false;
 function submitStaffQuestion(event){
